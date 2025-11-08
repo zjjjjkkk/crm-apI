@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crm.mapper.ContractPaymentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.crm.entity.ContractPayment">
+        <id column="payment_id" property="paymentId" />
+        <result column="contract_id" property="contractId" />
+        <result column="payment_no" property="paymentNo" />
+        <result column="payment_amount" property="paymentAmount" />
+        <result column="payment_date" property="paymentDate" />
+        <result column="payment_method" property="paymentMethod" />
+        <result column="audit_status" property="auditStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="is_deleted" property="isDeleted" />
+    </resultMap>
+
+</mapper>
