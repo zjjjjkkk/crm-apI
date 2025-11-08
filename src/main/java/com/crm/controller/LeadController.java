@@ -21,16 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
  * 前端控制器
  * </p>
  *
- * @author crm
+ * @author crm  // 保留你本地的作者信息（也可以改成自己的名字）
  * @since 2025-10-12
  */
-@Tag(name = "线索管理")
+@Tag(name = "线索管理")  // 保留Swagger接口文档注解（方便接口调试）
 @RestController
-@RequestMapping("lead")
-@AllArgsConstructor
+@RequestMapping("/crm/lead")  // 统一用远程的路径规范（加/crm前缀，避免接口冲突）
+@AllArgsConstructor  // 保留lombok注入，简化依赖注入代码
 public class LeadController {
 
-    private final LeadService leadService;
+    private final LeadService leadService;  // 保留Service注入
 
     @PostMapping("page")
     @Operation(summary = "分页查询")

@@ -12,15 +12,19 @@ import com.crm.query.LeadQuery;
  * 服务类
  * </p>
  *
- * @author crm
+ * @author crm  // 保留你本地的作者信息，也可改为自己的名字（如 zjjjjkkk）
  * @since 2025-10-12
  */
 public interface LeadService extends IService<Lead> {
+    // 分页查询线索
     PageResult<Lead> getPage(LeadQuery query);
 
+    // 保存或修改线索
     void saveOrEdit(Lead lead);
 
+    // 跟进线索
     void followLead(FollowUp followUp);
 
+    // 线索转客户
     void convertToCustomer(IdQuery idQuery);
 }

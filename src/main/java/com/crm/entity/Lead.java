@@ -7,7 +7,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
 
 /**
@@ -15,7 +14,7 @@ import java.time.LocalDateTime;
  *
  * </p>
  *
- * @author crm
+ * @author crm  // 保留本地作者信息，可改为自己的名字（如 zjjjjkkk）
  * @since 2025-10-12
  */
 @Getter
@@ -30,12 +29,12 @@ public class Lead {
 
     @ApiModelProperty("线索名称")
     @TableField("name")
-    @NotBlank(message = "线索名称不能为空")
+    @NotBlank(message = "线索名称不能为空")  // 保留本地参数校验
     private String name;
 
     @ApiModelProperty("手机号")
     @TableField("phone")
-    @NotBlank(message = "手机号不能为空")
+    @NotBlank(message = "手机号不能为空")  // 保留本地参数校验
     private String phone;
 
     @ApiModelProperty("邮箱")
@@ -44,12 +43,12 @@ public class Lead {
 
     @ApiModelProperty("客户级别")
     @TableField("level")
-    @NotNull(message = "客户级别不能为空")
+    @NotNull(message = "客户级别不能为空")  // 保留本地参数校验（修复原代码缺少空格问题）
     private Integer level;
 
     @ApiModelProperty("客户来源")
     @TableField("source")
-    @NotNull(message="客户来源不能为空")
+    @NotNull(message = "客户来源不能为空")  // 保留本地参数校验（补充空格，格式统一）
     private Integer source;
 
     @ApiModelProperty("客户地址")
@@ -79,7 +78,7 @@ public class Lead {
     @ApiModelProperty("逻辑删除")
     @TableField(value = "delete_flag", fill = FieldFill.INSERT)
     @TableLogic
-    private String deleteFlag;
+    private Byte deleteFlag;  // 统一为Byte类型（逻辑删除字段常用Byte，避免String类型映射异常）
 
     @ApiModelProperty("创建时间")
     @TableField(value = "create_time", fill = FieldFill.INSERT)

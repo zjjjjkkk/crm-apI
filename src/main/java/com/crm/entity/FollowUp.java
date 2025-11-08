@@ -9,7 +9,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDateTime;
 
 /**
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
  *
  * </p>
  *
- * @author crm
+ * @author crm  // 保留本地作者信息，可改为自己的名字（如 zjjjjkkk）
  * @since 2025-10-12
  */
 @Getter
@@ -32,7 +31,7 @@ public class FollowUp {
 
     @ApiModelProperty("0-客户跟进，1-线索跟进")
     @TableField("target_type")
-    private Integer targetType;
+    private Byte targetType;  // 统一为远程的Byte类型（更节省存储，符合小数值字段规范）
 
     @ApiModelProperty("跟进客户id")
     @TableField("customer_id")
@@ -40,24 +39,24 @@ public class FollowUp {
 
     @ApiModelProperty("跟进类型")
     @TableField("follow_type")
-    @NotNull(message = "跟进类型不能为空")
+    @NotNull(message = "跟进类型不能为空")  // 保留本地参数校验（避免空值提交）
     private Integer followType;
 
     @ApiModelProperty("跟进内容")
     @TableField("content")
-    @NotBlank(message = "跟进内容不能为空")
+    @NotBlank(message = "跟进内容不能为空")  // 保留本地参数校验（避免空内容提交）
     private String content;
 
     @ApiModelProperty("下次跟进时间")
     @TableField("next_follow_type")
-    @NotNull(message = "请选择下次跟进时间")
-    @JsonFormat(pattern = DateUtils.DATE_TIME_PATTERN, timezone = "GMT+8")
+    @NotNull(message = "请选择下次跟进时间")  // 保留本地参数校验
+    @JsonFormat(pattern = DateUtils.DATE_TIME_PATTERN, timezone = "GMT+8")  // 保留时间格式化（前端交互更友好）
     private LocalDateTime nextFollowType;
 
     @ApiModelProperty("逻辑删除0-未删除，1-已删除")
     @TableField(value = "delete_flag", fill = FieldFill.INSERT)
     @TableLogic
-    private Integer deleteFlag;
+    private Byte deleteFlag;  // 统一为远程的Byte类型（逻辑删除字段常用Byte）
 
     @ApiModelProperty("创建时间")
     @TableField(value = "create_time", fill = FieldFill.INSERT)
