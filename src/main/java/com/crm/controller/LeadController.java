@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Tag(name = "线索管理")  // 保留Swagger接口文档注解（方便接口调试）
 @RestController
-@RequestMapping("/crm/lead")  // 统一用远程的路径规范（加/crm前缀，避免接口冲突）
+@RequestMapping("lead")  // 统一用远程的路径规范（加/crm前缀，避免接口冲突）
 @AllArgsConstructor  // 保留lombok注入，简化依赖注入代码
 public class LeadController {
 

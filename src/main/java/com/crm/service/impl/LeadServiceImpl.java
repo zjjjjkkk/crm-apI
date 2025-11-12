@@ -24,16 +24,16 @@ import org.springframework.stereotype.Service;
  * 服务实现类
  * </p>
  *
- * @author crm  // 保留你本地的作者信息，可改为自己的名字（如 zjjjjkkk）
+ * @author crm
  * @since 2025-10-12
  */
 @Service
 public class LeadServiceImpl extends ServiceImpl<LeadMapper, Lead> implements LeadService {
 
     private final CustomerMapper customerMapper;
+
     private final FollowUpMapper followUpMapper;
 
-    // 构造器注入依赖（本地原有逻辑，必须保留，否则业务方法会报空指针）
     public LeadServiceImpl(CustomerMapper customerMapper, FollowUpMapper followUpMapper) {
         this.customerMapper = customerMapper;
         this.followUpMapper = followUpMapper;

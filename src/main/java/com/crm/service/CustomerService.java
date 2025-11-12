@@ -1,15 +1,16 @@
-package com.crm.service;
+    package com.crm.service;
 
 import com.crm.common.result.PageResult;
 import com.crm.entity.Customer;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.crm.query.CustomerQuery;
+import com.crm.query.CustomerTrendQuery;
 import com.crm.query.IdQuery;
 import com.crm.vo.CustomerVO;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.net.http.HttpResponse;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -25,11 +26,19 @@ public interface CustomerService extends IService<Customer> {
     //导出
     void exportCustomer(CustomerQuery query, HttpServletResponse response);
 
-    void saveOrUpdate(CustomerVO CustomerVO);
+    /*新增/修改客户信息
+    * @param customerVO
+    */
+    void saveOrUpdate(CustomerVO customerVO);
 
+    //删除客户信息
     void removeCustomer(List<Integer> ids);
 
+    //客户转入公海
     void customerToPublicPool(IdQuery idQuery);
 
+    //客户领取
     void publicPoolToPrivate(IdQuery idQuery);
+
+    Map<String, List> getCustomerTrendData(CustomerTrendQuery query);
 }

@@ -31,7 +31,7 @@ public class FollowUp {
 
     @ApiModelProperty("0-客户跟进，1-线索跟进")
     @TableField("target_type")
-    private Byte targetType;  // 统一为远程的Byte类型（更节省存储，符合小数值字段规范）
+    private Integer targetType;  // 统一为远程的Integer类型（更节省存储，符合小数值字段规范）
 
     @ApiModelProperty("跟进客户id")
     @TableField("customer_id")
@@ -56,7 +56,7 @@ public class FollowUp {
     @ApiModelProperty("逻辑删除0-未删除，1-已删除")
     @TableField(value = "delete_flag", fill = FieldFill.INSERT)
     @TableLogic
-    private Byte deleteFlag;  // 统一为远程的Byte类型（逻辑删除字段常用Byte）
+    private Integer deleteFlag;  // 统一为远程的Integer类型（逻辑删除字段常用Integer）
 
     @ApiModelProperty("创建时间")
     @TableField(value = "create_time", fill = FieldFill.INSERT)
