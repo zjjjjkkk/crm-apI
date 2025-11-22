@@ -32,6 +32,8 @@ public class Contract {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
+
+
     @ApiModelProperty("合同编号")
     @TableField("number")
     private String number;

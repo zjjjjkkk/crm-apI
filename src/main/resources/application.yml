@@ -1,13 +1,28 @@
 spring:
+  # 应用基础配置
   application:
     name: crm-api
   profiles:
     active: dev
   mvc:
     path-match:
-      matching-strategy: ant_path_matcher #解决
+      matching-strategy: ant_path_matcher # 解决路径匹配问题
+  # 邮件发送配置
+  mail:
+    host: smtp.qq.com # 邮件服务器（QQ邮箱示例，企业邮箱需替换对应SMTP地址）
+    username: 3348805775@qq.com # 发件人邮箱（如QQ邮箱、企业邮箱）
+    password: cynqckzuirheciaa # 邮箱授权码（非登录密码，需在邮箱设置中开启SMTP获取）
+    port: 587
+    protocol: smtp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
-
+# MyBatis-Plus 配置
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   type-aliases-package: com.crm.*.entity
@@ -17,19 +32,21 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      logic-delete-field: true # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-field: true # 全局逻辑删除的实体字段名(since 3.3.0,配置后可忽略步骤2)
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
 
+# 服务器配置
 server:
   port: 8081
   servlet:
     context-path: /crm-api
 
+# 日志配置
 logging:
   config: classpath:log/logback-spring.xml
 
-# springdoc-openapi项目配置
+# springdoc-openapi 接口文档配置
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
@@ -42,16 +59,17 @@ springdoc:
       paths-to-match: '/**'
       packages-to-scan: com.crm.controller
 
-# knife4j的增强配置，不需要增强可以不配
+# knife4j 接口文档增强配置（不需要可删除）
 knife4j:
   enable: true
   setting:
     language: zh_cn
   basic:
-    enable: true    #开启密码模式
-    username: admin   #用户名
-    password: 123456  #密码
+    enable: true    # 开启密码验证
+    username: admin   # 登录用户名
+    password: 123456  # 登录密码
 
+# 权限忽略路径配置
 auth:
   ignore_urls:
     - /sys/auth/**
@@ -66,13 +84,10 @@ auth:
     - /                     # 根路径
     - /department/**
 
+# 阿里云OSS配置
 aliyun:
   oss:
-    # oss对外服务的访问域名
-    endpoint: "oss-cn-hangzhou.aliyuncs.com"
-    # 访问身份验证中用到用户标识
-    accessKeyId: LTAI5tCVQaLxeoajUdQZDzQ9
-    # 用户用于加密签名字符串和oss用来验证签名字符串的密钥
-    accessKeySecret: CK0GSLBTQhmYbIAWmR8LZfMnS3SixV
-    # oss的存储空间
-    bucketName: "zjk629"
+    endpoint: "oss-cn-hangzhou.aliyuncs.com" # oss对外服务访问域名
+    accessKeyId: LTAI5tCVQaLxeoajUdQZDzQ9 # 访问身份验证用户标识
+    accessKeySecret: CK0GSLBTQhmYbIAWmR8LZfMnS3SixV # 加密签名字符串密钥
+    bucketName: "zjk629" # oss存储空间名称

@@ -17,7 +17,7 @@ import lombok.Setter;
  * 用户管理
  * </p>
  *
- * @author vact
+ * @author crm
  * @since 2025-10-12
  */
 @Getter
@@ -41,6 +41,10 @@ public class Manager {
     @ApiModelProperty("密码")
     @TableField("password")
     private String password;
+
+    @ApiModelProperty("邮箱")
+    @TableField("email")
+    private String email;
 
     @ApiModelProperty("状态  0：停用   1：正常")
     @TableField("status")
