@@ -1,12 +1,12 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/crm_database?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://47.110.3.220/crm_database1?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
-    password: 1234
+    password: soft@web
 
   data:
     redis:
-      host: 127.0.0.1
+      host: 47.110.3.220
       port: 6379
-      password:   # 如果没有密码，可以不写或写成空字符串
+      password: zhoujiakun   # 如果没有密码，可以不写或写成空字符串

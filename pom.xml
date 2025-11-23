@@ -218,9 +218,11 @@
             <artifactId>spring-boot-starter-mail</artifactId>
             <!-- 无需指定版本，Spring Boot 父工程已管理 -->
         </dependency>
+
     </dependencies>
 
     <build>
+        <finalName>crm-api</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
